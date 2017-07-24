@@ -37,14 +37,13 @@ docker 本機開發 e2e 測試 - production
 所幸技術的演進，也讓測試的進行更加的容易，透過設計好的 Hands-On Labs，讓大家了解 E2E Website 測試的運作
 並且搭配 CI（持續整合）進行自動化測試，體驗在專案的開發上，根據不同狀況盡讓測試協助開發。
 
-Dojo 1：develop Auto testing mode: 前端 E2E Testing
+* Dojo 1：develop Auto testing mode: 前端 E2E Testing
 開發離不開測試，透過此 Dojo 了解在工程師的開發環境下，如何撰寫 E2E Testing
 
-Dojo 2：前端 E2E (End to End) Testing with Docker
+* Dojo 2：前端 E2E (End to End) Testing with Docker
 實際動手做，了解如何使用 Docker 進行自動化的 E2E 前端測試，讓前端測試更容易進行，即使沒有桌面環境，透過 Docker 的協助，只要有 Docker 的運作環境，可在任何地方進行前端測試。
 
-Dojo 3：Run Auto testing mode: 前端 E2E Testing With CI
+* Dojo 3：Run Auto testing mode: 前端 E2E Testing With CI
 E2E Testing 透過 CI 搭配 Docker 運行，讓 CI 即使沒有安裝 UI 環境或是 Browser 即可以進行前端自動化測試，更靈活地搭配 Docker 進行部署與測試、強化開發流程。
 
-
-協力單位：創科資訊
+**協力單位：創科資訊**
