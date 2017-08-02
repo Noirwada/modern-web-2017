@@ -1,0 +1,45 @@
+version: '2'
+services:
+  build:
+    container_name: e2e_build
+    image: node:7.6
+    command:  bash -c "cd wd-ex01 && rm -rf node_modules && npm install && cd ../wd-ex02 && rm -rf node_modules && npm install"
+    working_dir: /e2eSample
+    volumes:
+      - ./e2eSample:/e2eSample
+
+  test-ex01:
+    container_name: test-ex01 #
+    image: node:7.6
+    command: "npm run test"
+    working_dir: /e2eSample/wd-ex01
+    volumes:
+      - ./e2eSample:/e2eSample
+    networks:
+      - front-tier
+
+  test-ex02:
+      container_name: test-ex02 #
+      image: node:7.6
+      command: "npm run test"
+      working_dir: /e2eSample/wd-ex02
+      volumes:
+        - ./e2eSample:/e2eSample
+      networks:
+        - front-tier
+
+  selenium:
+    container_name: selenium
+    image: selenium/standalone-firefox-debug:2.53.0
+    expose:
+      - "4444" #
+    ports:
+      - "5900:5900" #
+    networks:
+      - front-tier #
+
+networks:
+  front-tier:
+    driver: bridge
+
+
