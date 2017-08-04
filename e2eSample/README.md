@@ -1,49 +1,265 @@
-# E2E Website Testing Dojo
+# Dojo 1：develop Auto testing mode: 前端 E2E Testing
 
-### 緣由
+開發離不開測試，透過此 Dojo 了解在工程師的開發環境下，如何撰寫 E2E Testing。
 
-在現今的 web 開發，軟體技術推成出新，開發方式也不停的進化，唯有測試是在開發的過程中，最容易被忽略，一但專案啟動時未考量到對於品質的控管，在開發的中後期要在加入，將會困難重重...
+**練習目標**
 
-但技術的演進，也讓測試的進行更加的容易，期望透過簡單體驗的形式，讓大家可以了解 web e2e 測試的運作沒有想像中的複雜，並且搭配 CI 自動化程序進行自動化測試，除了自己測試之外，也讓 CI 自動進行整體自動化測試，也經由這樣的體驗，了解測試其實不難，在相關測試技術的幫忙下，可以有效率的進行，進而提高測試導入的意願。
-
-### 預計計畫
+* 輕鬆使用前端測試框架來撰寫網站自動化測試程式
+* 使用 Page Object 來簡化自動化程式維護的負擔
 
-以兩個電腦為一組
+### WebdriverIO 初始化專案
 
-電腦 A：CI 持續整合 server
-電腦 B：使用者編寫 e2e 測試
+```
+// 新增空的專案資料夾
+mkdir demo
 
-預計將會設計一個測試情境，讓使用者完成事先定義好的測試案例
+cd demo
 
-然後會準備三個情境
+// 初始化 npm 專案
+npm init -y
 
-本機開發 e2e 測試- develop
-docker 本機開發 e2e 測試 - production
-搭配 CI 執行 e2e 測試- test
+// 安裝 webdriverio 模組
+npm install webdriverio --save-dev
+```
 
-透過相關環境的預先建置，省去使用者要進行測試時需要進行環境建置的麻煩。
+**產生 Webdriverio 設定檔**
 
-另外會有一組解說，環境建置的細節。
+![](assets/wdio-output.png)
 
+```
+// 執行 CLI (Mac)
+$ node_modules/.bin/wdio
 
-### 期望效果
+// 執行 CLI (Window)
+$ node_modules\.bin\wdio
 
-透過此練習，讓學員可以認識 e2e 測試也可以很簡單，也讓學員了解到測試如何在持續整合中進行自動化測試，並且進一步加強相關課程的宣傳。
-
-### E2E Website Testing Dojo
+=========================
+WDIO Configuration Helper
+=========================
 
-體驗技術最快的方式，莫過於自己動手做，測試在一定程度複雜的專案都知道其必要性，但卻最常被忽略，一但專案啟動時未考量到對於品質的控管，在開發的中後期要在加入，將會困難重重...
+選擇你的執行環境
+? Where do you want to execute your tests? On my local machine
 
-所幸技術的演進，也讓測試的進行更加的容易，透過設計好的 Hands-On Labs，讓大家了解 E2E Website 測試的運作
-並且搭配 CI（持續整合）進行自動化測試，體驗在專案的開發上，根據不同狀況盡讓測試協助開發。
+選擇你要使用的測試框架
+? Which framework do you want to use? mocha
 
-* Dojo 1：develop Auto testing mode: 前端 E2E Testing
-開發離不開測試，透過此 Dojo 了解在工程師的開發環境下，如何撰寫 E2E Testing
+你要安裝測試框架的 adapter 嗎？
+? Shall I install the framework adapter for you? Yes
 
-* Dojo 2：前端 E2E (End to End) Testing with Docker
-實際動手做，了解如何使用 Docker 進行自動化的 E2E 前端測試，讓前端測試更容易進行，即使沒有桌面環境，透過 Docker 的協助，只要有 Docker 的運作環境，可在任何地方進行前端測試。
+設定你預計測試程式放置的資料夾位置
+? Where are your test specs located? 
 
-* Dojo 3：Run Auto testing mode: 前端 E2E Testing With CI
-E2E Testing 透過 CI 搭配 Docker 運行，讓 CI 即使沒有安裝 UI 環境或是 Browser 即可以進行前端自動化測試，更靈活地搭配 Docker 進行部署與測試、強化開發流程。
+選擇你想要的報表格式
+? Which reporter do you want to use?
 
-**協力單位：創科資訊**
+你要安裝報表函式庫嗎？
+? Shall I install the reporter library for you? 
+
+你想要新增服務到你的測試專案嗎？
+? Do you want to add a service to your test setup?
+
+你要安裝服務嗎？
+? Shall I install the services for you?
+
+設定 log 的層級
+? Level of logging verbosity silent
+
+設定測試失敗後，截圖放置位置
+? In which directory should screenshots gets saved if a command fails?
+
+設定將要測試的網站的 domain url
+? What is the base url? 
+```
+
+**執行方式**
+
+1. 編輯 `package.json`
+2. 把 script test 指令設定為 `wdio wdio.conf.js`
+3. 執行 `npm test`
+
+### WebdriverIO 常用指令 (API) 語法
+
+<http://webdriver.io/api.html>
+
+**指令種類**
+
+* Protocol
+* Action
+* Utility
+* Property
+* State
+* Mobile (暫時跳過)
+
+#### Protocol
+
+**選取元素**
+
+```js
+browser.element('div');
+$('div');
+
+browser.elements('div');
+$$('div');
+```
+
+**前往某網址**
+
+```js
+browser.url('http://www.google.com');
+```
+
+#### Action
+
+**設定欄位的值**
+
+```js
+browser.element('.email').setValue('aaa@bbb.com');
+// 縮寫
+$('.email').setValue('aaa@bbb.com');
+```
+
+**點選欄位的值**
+
+```js
+browser.click('.some-button');
+
+// 縮寫
+$('.some-button').click();
+
+$('[title="Sign Out"]').click();
+```
+
+#### Utility
+
+**檢查某個元素是否存在**
+
+```js
+browser.waitForExist('.alert-text');
+
+// 縮寫
+$('.alert-text').waitForExist();
+```
+
+**暫停**
+
+```js
+browser.pause(5000);
+```
+
+**除錯**
+
+```js
+browser.debug();
+```
+
+**加命令**
+
+```js
+browser.addCommand();
+```
+
+**waitForExist**
+
+```js
+browser.element('.notification').waitForExist();
+browser.element('.notification').waitForExist(5000);
+browser.element('.notification').waitForExist(5000, true);
+// 或
+browser.waitForExist('.notification');
+browser.waitForExist('.notification', 5000);
+browser.waitForExist('.notification', 5000, true);
+```
+
+**saveScreenshot**
+
+```js
+browser.saveScreenshot('front_page.png');
+```
+
+**end**
+
+```js
+client
+    .init()
+    .url('http://google.com')
+    .end();
+    // ends session and close browser
+```
+
+#### Property
+
+**取得某個元素的文字**
+
+```js
+browser.getText('.alert-text');
+
+// 縮寫
+$('.alert-text').getText();
+```
+
+**取得某個元素的值**
+
+```js
+browser.getValue('input[name=email]');
+```
+
+**取得標題**
+
+```js
+browser.getTitle();
+```
+
+**取得網址**
+
+```js
+browser.getUrl();
+```
+
+#### State
+
+**isEnabled**
+
+```html
+<input type="text" name="inputField" class="input1">
+<input type="text" name="inputField" class="input2" disabled>
+<input type="text" name="inputField" class="input3" disabled="disabled">
+```
+
+```js
+var isEnabled = browser.isEnabled('.input1');
+console.log(isEnabled); // outputs: true
+var isEnabled2 = browser.isEnabled('.input2');
+console.log(isEnabled2); // outputs: false
+var isEnabled3 = browser.isEnabled('.input3')
+console.log(isEnabled3); // outputs: false
+```
+
+**isSelected**
+
+```html
+<select name="selectbox" id="selectbox">
+    <option value="Daisy">Daisy</option>
+    <option value="Alin" selected="selected">Alin</option>
+    <option value="Andy">Andy</option>
+</select>
+```
+
+```js
+$('[value="Layla Terry"]').isSelected(); // 輸出: true
+
+browser.selectByValue('#selectbox', 'Bill Gilbert');
+element.isSelected(); // 輸出: false
+```
+
+**isExisting / isVisible**
+
+```html
+<div id="notDisplayed" style="display: none"></div>
+<div id="notVisible" style="visibility: hidden"></div>
+<div id="notInViewport" style="position:absolute; left: 9999999"></div>
+<div id="zeroOpacity" style="opacity: 0"></div>
+```
+
+```js
+browser.isExisting(selector);
+```
