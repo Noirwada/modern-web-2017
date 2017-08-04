@@ -7,7 +7,7 @@
 * 輕鬆使用前端測試框架來撰寫網站自動化測試程式
 * 使用 Page Object 來簡化自動化程式維護的負擔
 
-### WebdriverIO 初始化專案
+## WebdriverIO 初始化專案
 
 ```
 // 新增空的專案資料夾
@@ -77,7 +77,7 @@ WDIO Configuration Helper
 2. 把 script test 指令設定為 `wdio wdio.conf.js`
 3. 執行 `npm test`
 
-### WebdriverIO 常用指令 (API) 語法
+## WebdriverIO 常用指令 (API) 語法
 
 <http://webdriver.io/api.html>
 
@@ -90,7 +90,7 @@ WDIO Configuration Helper
 * State
 * Mobile (暫時跳過)
 
-#### Protocol
+### Protocol
 
 **選取元素**
 
@@ -108,7 +108,7 @@ $$('div');
 browser.url('http://www.google.com');
 ```
 
-#### Action
+### Action
 
 **設定欄位的值**
 
@@ -129,7 +129,7 @@ $('.some-button').click();
 $('[title="Sign Out"]').click();
 ```
 
-#### Utility
+### Utility
 
 **檢查某個元素是否存在**
 
@@ -186,7 +186,7 @@ client
     // ends session and close browser
 ```
 
-#### Property
+### Property
 
 **取得某個元素的文字**
 
@@ -215,7 +215,7 @@ browser.getTitle();
 browser.getUrl();
 ```
 
-#### State
+### State
 
 **isEnabled**
 
