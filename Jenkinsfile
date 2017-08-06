@@ -19,10 +19,10 @@ node {
   }
   
   stage('build') {
-    sh "docker-compose up build"
+    sh "docker-compose run --service-ports build"
   }
 
   stage('test') {
-    sh "docker-compose up test-ex01"
+    sh "docker-compose run --service-ports test-ex01"
   }
 }

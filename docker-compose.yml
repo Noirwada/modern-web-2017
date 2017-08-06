@@ -9,7 +9,7 @@ services:
       - ./e2eSample:/e2eSample
 
   test-ex01:
-    container_name: test-ex01 #
+    container_name: test-ex01 
     image: node:7.6
     command: "npm run test"
     working_dir: /e2eSample/wd-ex01
@@ -19,7 +19,7 @@ services:
       - front-tier
 
   test-ex02:
-      container_name: test-ex02 #
+      container_name: test-ex02 
       image: node:7.6
       command: "npm run test"
       working_dir: /e2eSample/wd-ex02
@@ -32,11 +32,11 @@ services:
     container_name: selenium
     image: selenium/standalone-firefox-debug:2.53.0
     expose:
-      - "4444" #
+      - "4444" 
     ports:
-      - "5900:5900" #
+      - "5900:5900" 
     networks:
-      - front-tier #
+      - front-tier 
 
 networks:
   front-tier:
