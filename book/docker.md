@@ -3,8 +3,13 @@
 將原本的流程拆成三個部分
 
 - Up Selenium Server
+
 - Build Project
-- RunTesting
+
+- Run Testing
+
+  ​
+
 
 ## Selenium Server
 
@@ -34,7 +39,7 @@
 
 ## Testing Environment
 
-### Build Project Environment 
+#### Build Project Environment 
 
 ```
   build:
