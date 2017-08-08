@@ -9,7 +9,6 @@ services:
       - ./e2eSample:/e2eSample
 
   test-ex01:
-    container_name: test-ex01 
     image: node:7.6
     command: "npm run test"
     working_dir: /e2eSample/wd-ex01
@@ -19,7 +18,6 @@ services:
       - front-tier
 
   test-ex02:
-      container_name: test-ex02 
       image: node:7.6
       command: "npm run test"
       working_dir: /e2eSample/wd-ex02
