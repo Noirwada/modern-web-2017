@@ -20,9 +20,9 @@ node {
   }
 
   /* Install node_modules */
-  // stage('build') {
-  //   sh "docker-compose run --service-ports build"
-  // }
+  stage('build') {
+     sh "docker-compose run --service-ports build"
+  }
 
   try {
     /* Run test case*/
