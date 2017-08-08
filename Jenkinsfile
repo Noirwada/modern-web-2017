@@ -6,23 +6,26 @@ node {
     sh "docker ps"
   }
   
-   stage('checkout branch') {
-   // playground
-   // git url: 'https://github.com/trunk-studio/modern-web-2017.git', branch: 'dev'
+  stage('checkout branch') {
+    /* playground */
+    // git url: 'https://github.com/trunk-studio/modern-web-2017.git', branch: 'dev'
  
-   // for build
-      checkout scm
-   }
-  
+    /* for build */
+    checkout scm
+  }
+
+  /* Selenium Server */
   stage('selenium') {
       sh "docker-compose up -d selenium"
   }
-  
-  stage('build') {
-    sh "docker-compose run --service-ports build"
-  }
+
+  /* Install node_modules */
+  // stage('build') {
+  //   sh "docker-compose run --service-ports build"
+  // }
 
   try {
+    /* Run test case*/
     stage('test') {
       sh "docker-compose run --name `uuidgen` --service-ports test-ex01"
     }
