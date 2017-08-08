@@ -23,7 +23,7 @@
 mkdir -p ./test/specs
 
 // 先把 Selenium Server 執行起來 (視窗一)
-webdriver-manage start
+webdriver-manager start
 
 // 然後再跑測試程式 (視窗二)
 npm test
