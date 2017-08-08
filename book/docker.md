@@ -13,9 +13,9 @@
 
 ## Selenium Server
 
-這邊直接使用 selenium 提供的 image `selenium/standalone-firefox-debug:2.53.0`
+直接使用 selenium 提供的 image `selenium/standalone-firefox-debug:2.53.0`
 
-這邊需要注意的是網路的設定，需要為 VNC 和 Selenium 留下通道
+需要注意的是網路的設定，需要為 VNC 和 Selenium 留下通道
 
 ##### Selenium API Port
 
@@ -65,7 +65,6 @@
 
 ```yaml
   test-ex01:
-    container_name: test-ex01 #
     image: node:7.6
     command: "npm run test"
     working_dir: /e2eSample/wd-ex01
