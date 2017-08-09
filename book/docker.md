@@ -15,7 +15,7 @@
 
 直接使用 selenium 提供的 image `selenium/standalone-firefox-debug:2.53.0`
 
-需要注意的是網路的設定，需要為 VNC 和 Selenium 留下通道
+> 要特別注意的是網路的設定，需要為 VNC 和 Selenium 留下通道
 
 ##### Selenium API Port
 
@@ -34,7 +34,7 @@
 ```
 
 這邊是做 Port Forwarding 讓電腦的 localhost:5900 導向到容器的 5900 port
-
+這樣可以透過 VNC 連線觀看瀏覽器測試的狀況
 
 
 ## Testing Environment
@@ -76,5 +76,5 @@
 
 這邊以執行 ex01 的測試檔案為例
 由於專案建置的步驟應該在上一個 `build` 階段就已經執行
-且因volume掛載同一個外部資料夾，因此安裝過的modules會保存下來
+且因volume掛載同一個外部資料夾，因此安裝過的 modules 會保存下來
 因此這個容器只要需做執行測試的步驟
