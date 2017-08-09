@@ -1,6 +1,5 @@
 # Integration with Jenkins
 
-[TOC]
 
 ## 管理介面
 
@@ -27,10 +26,10 @@
 
 ![Branch Source](./assets/branch_source.png)
 
-透過設定 Branch Source 決定建置的專案程式碼來源
-這裡以選擇 GitHub 為例
-在 Owner 填入 GitHub ID 後
-Repository 會自動列出該 ID 的 Public Repo 供你選擇
+透過設定 Branch Source 決定建置的專案程式碼來源  
+這裡以選擇 GitHub 為例  
+在 Owner 填入 GitHub ID 後  
+Repository 會自動列出該 ID 的 Public Repo 供你選擇  
 
 > 這邊建議即使是對 Public Repo 做建置設定，也要設定 Credentials ，因為在沒有身份認證的狀況下，GitHub API 呼叫次數是有限制的，而且容易沒有回應
 
@@ -43,7 +42,7 @@ Repository 會自動列出該 ID 的 Public Repo 供你選擇
 如圖透過設定 `by Jenkinsfile` 和 Jenkinsfile 路徑
 Jenkins 將依照路徑去找到專案中的流程配置檔 `Jenkinsfile `
 
-> 將自動化流程變成配置檔案，可以將整個流程的設定和專案程式碼一起納入版本控制中
+> 將自動化流程變成配置檔案，可以將整個流程的設定和專案程式碼一起納入版本控制中  
 > 達到更好的管理和追蹤
 
 
@@ -60,9 +59,9 @@ Scan Multibranch Pipeline Triggers > check `Periodically if not otherwise run`
 
 ## 流程配置
 
-我們將透過編輯專案根目錄下的 `Jenkinsfile`來設定建置流程
-透過 stage 可以將整個建置流程分成不同階段的分類
-依照 stage 的劃分，流程的執行結果也會如下圖 ` Stage View` 呈現
+我們將透過編輯專案根目錄下的 `Jenkinsfile`來設定建置流程  
+透過 stage 可以將整個建置流程分成不同階段的分類  
+依照 stage 的劃分，流程的執行結果也會如下圖 ` Stage View` 呈現  
 可以更清楚的知道整個建置流程的狀況
 
 ```groovy
