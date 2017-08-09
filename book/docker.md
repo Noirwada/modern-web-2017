@@ -2,14 +2,15 @@
 
 將原本的流程拆成三個部分
 
-- Up Selenium Server
+- Selenium Server
 
 - Build Project
 
 - Run Testing
 
-  ​
 
+
+接下來開始為這三個階段編寫其需求的容器配置
 
 ## Selenium Server
 
@@ -37,9 +38,7 @@
 這樣可以透過 VNC 連線觀看瀏覽器測試的狀況
 
 
-## Testing Environment
-
-#### Build Project Environment 
+## Build Project Environment
 
 ```
   build:
@@ -61,7 +60,7 @@
 
 有了專案程式碼之後就可以開始我們建置環境的 script 了，這個 sample 以 JavaScript 為例，而容器環境可能和本機不同，因此需要在容器中重新安裝 node_modules，如果專案有其他建置步驟也可將指令加入 command 中，在這階段一起完成
 
-## Run Testing
+## Test Execution Environment
 
 ```yaml
   test-ex01:
@@ -78,3 +77,18 @@
 由於專案建置的步驟應該在上一個 `build` 階段就已經執行  
 且因volume掛載同一個外部資料夾，因此安裝過的 modules 會保存下來  
 因此這個容器只要需做執行測試的步驟
+
+
+
+---
+
+以上三個部分都配置好後
+
+依序執行 
+
+```bash
+$ docker-compose up -d selenium # -d 表示在背景執行
+$ docker-compose run --service-ports build
+$ docker-compose run --service-ports test-ex01
+```
+
