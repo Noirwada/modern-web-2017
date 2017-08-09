@@ -53,13 +53,13 @@
 
 #### 設定 volumes 掛載專案資料夾
 
-透過上面的 volumes 設定將本機的 e2eSample 資料夾掛載到容器中，容器中才能讀到專案程式碼
+容器應該是乾淨的執行環境
+每次刪掉重啟都會是全新的
+因此透過上面的 volumes 設定將本機的 e2eSample 資料夾掛載到容器中，容器中才能讀到專案程式碼
 
 #### command 設定要執行的 script
 
 有了專案程式碼之後就可以開始我們建置環境的 script 了，這個 sample 以 JavaScript 為例，而容器環境可能和本機不同，因此需要在容器中重新安裝 node_modules，如果專案有其他建置步驟也可將指令加入 command 中，在這階段一起完成
-
-
 
 ## Run Testing
 
