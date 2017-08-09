@@ -430,7 +430,8 @@ $ docker-compose run --service-ports test-ex01
 
 ## 管理介面
 
-透過瀏覽器開啟 `localhost:9088` 
+VM 裡透過瀏覽器開啟： `localhost:8080` 
+
 可以進入 Jenkins 管理頁面
 
 ![Jenkins Dashboard](./assets/jenkins_dashboard.png)
