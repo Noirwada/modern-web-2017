@@ -21,7 +21,7 @@ node {
 
   /* Install node_modules */
   stage('build') {
-     sh "docker-compose run --service-ports build"
+     sh "docker-compose run --name `uuidgen` --service-ports build"
   }
 
   try {
