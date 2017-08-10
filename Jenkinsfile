@@ -15,7 +15,7 @@ node {
    }
   
   stage('selenium') {
-      sh "docker-compose up -d selenium"
+      sh "docker-compose up --no-recreate -d selenium"
   }
   
   stage('build') {
