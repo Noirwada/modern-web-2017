@@ -13,15 +13,21 @@ node {
     /* for build */
     checkout scm
   }
+  
+    
+  stage('clear containers') {
+    sh "docker rm $(docker ps -q)"
+  }
 
   /* Selenium Server */
   stage('selenium') {
       sh "docker-compose up -d selenium"
   }
 
+
   /* Install node_modules */
   stage('build') {
-     sh "docker-compose run --service-ports build"
+     sh "docker-compose run --name `uuidgen` --service-ports build"
   }
 
   try {
