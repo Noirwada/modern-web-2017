@@ -16,7 +16,7 @@ node {
 
   /* Selenium Server */
   stage('selenium') {
-      sh "docker-compose up -d selenium"
+      sh "docker-compose up --no-recreate -d selenium"
   }
 
   /* Install node_modules */
