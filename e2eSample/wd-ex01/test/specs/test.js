@@ -9,11 +9,28 @@ describe('第一個前端測試程式', function () {
   */
 
   it('登入失敗', function () {
+    
+    browser.url('http://demo.keystonejs.com/keystone/signin');
     // 輸入帳號
+    
+    $('input[name=email]').setValue('sss');
     // 輸入錯誤密碼
+    
+    $('input[name=password]').setValue('ss22222s');
     // 按送出按鈕
+  
+    $('button[type=submit]').click();
     // 檢查是否出現警告訊息
+    
+    
+    browser.waitForExist('.alert_1wamaxc-o_O-danger_i8m9rb');
     // 警告訊息的文字內容，是否如預期
+    
+    
+    assert.equal($('.alert_1wamaxc-o_O-danger_i8m9rb').getText(),'The email and password you entered are not valid.')
+    //browser.pause('50000');
+    
+    
   });
 
   it('登入成功', function () {
