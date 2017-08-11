@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "wdio wdio.conf.js"
+    "test": "wdio wdio.conf.js",
+    "test-docker": "wdio wdio.docker.conf.js"
   },
   "keywords": [],
   "author": "alincode <alincode@gmail.com>",
