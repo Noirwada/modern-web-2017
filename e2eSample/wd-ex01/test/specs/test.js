@@ -9,11 +9,20 @@ describe('第一個前端測試程式', function () {
   */
 
   it('登入失敗', function () {
+    
+    browser.url('http://demo.keystonejs.com/keystone/signin');
     // 輸入帳號
+    $('[type="email"]').setValue('demo@keystonejs.com');
     // 輸入錯誤密碼
+    $('[type="password"]').setValue('1234');
     // 按送出按鈕
+    $('button').click();
     // 檢查是否出現警告訊息
+    $('[data-alert-type="danger"]').waitForExist();
     // 警告訊息的文字內容，是否如預期
+    var msg = $('[data-alert-type="danger"]').getText();
+    assert.equal(msg,'The email and password you entered are not valid.');
+    
   });
 
   it('登入成功', function () {
