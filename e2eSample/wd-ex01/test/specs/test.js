@@ -9,7 +9,6 @@ describe('第一個前端測試程式', function () {
   */
 
   it('登入失敗', function () {
-    browser.url('http://demo.keystonejs.com/keystone/signin');
     // 輸入帳號
     $('[name="email"]').setValue('fsdfsdf@gdfgdfd.gdfg');
     $('[name="password"]').setValue('12345');
