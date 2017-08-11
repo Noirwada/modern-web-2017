@@ -1,5 +1,4 @@
 exports.config = {
-
     //
     // ==================
     // Specify Test Files
@@ -72,7 +71,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url parameter starts
     // with "/", then the base url gets prepended.
-    host: 'selenium', //'selenium',
+    host: 'localhost', // localhost selenium
     baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
@@ -125,7 +124,8 @@ exports.config = {
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
-        ui: 'bdd'
+        ui: 'bdd',
+        timeout: 600000
     },
     //
     // =====
