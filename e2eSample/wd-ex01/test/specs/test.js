@@ -8,26 +8,31 @@ describe('第一個前端測試程式', function () {
   });
   */
 
-  it('登入失敗', function () {
-    // 輸入帳號
-    $('[name="email"]').setValue('fsdfsdf@gdfgdfd.gdfg');
-    $('[name="password"]').setValue('12345');
-    $('button').click();   // 檢查是否出現警告訊息
-    browser.waitForExist('[data-alert-type="danger"]');// 警告訊息的文字內容，是否如預期
-    let msg = $('[data-alert-type="danger"]').getText();
-    assert.equal(msg, 'The email and password you entered are not valid.');
+  it('登入失敗', function() {
+    browser.url('http://demo.keystonejs.com/keystone/signin');
+    browser.element('[name=email]').setValue('demo@keystonejs.com');
+    browser.element('[name=password]').setValue('1111');
+    browser.click('button[type=submit]');
+    browser.waitForExist('[data-alert-type=danger]');
+    const message = browser.getText('[data-alert-type=danger]');
+    assert.equal(message,
+      'The email and password you entered are not valid.');
   });
 
-  it('登入成功', function () {
-    // 輸入帳號
-    // 輸入正確密碼
-    // 按送出按鈕
-    // 檢查是否存在登出連結
+  it('登入成功', function() {
+    browser.url('http://demo.keystonejs.com/keystone/signin');
+    browser.element('[name=email]').setValue('demo@keystonejs.com');
+    browser.element('[name=password]').setValue('demo');
+    browser.click('button[type=submit]');
+    browser.waitForExist('[href="/keystone/signout"]');
   });
 
-  it('登出', function () {
-    // 點選登出
-    // 檢查是否出現登出成功的訊息
+  it('登出', function() {
+    browser.click('[href="/keystone/signout"]');
+    browser.waitForExist('[data-alert-type=info]');
+    const message = browser.getText('[data-alert-type=info]');
+    assert.equal(message, 'You have been signed out.');
   });
+
 
 });
