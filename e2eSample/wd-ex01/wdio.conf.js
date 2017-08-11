@@ -44,7 +44,7 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'firefox'
+        browserName: 'chrome'
     }],
     //
     // ===================
@@ -72,8 +72,8 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url parameter starts
     // with "/", then the base url gets prepended.
-    host: 'selenium', // docker selenium
-    //host: 'localhost', // localhost selenium
+    //host: 'selenium', // docker selenium
+    host: 'localhost', // localhost selenium
     baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
