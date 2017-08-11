@@ -14,6 +14,10 @@ node {
     checkout scm
   }
 
+  stage('clean containers') {
+    sh "docker rm $(docker ps -a -q)"
+  }
+
   /* Selenium Server */
   stage('selenium') {
       sh "docker-compose up --no-recreate -d selenium"

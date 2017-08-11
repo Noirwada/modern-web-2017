@@ -10,7 +10,7 @@ services:
 
   test-ex01:
     image: node:7.6
-    command: "npm run test"
+    command: "npm run test-docker"
     working_dir: /e2eSample/wd-ex01
     volumes:
       - ./e2eSample:/e2eSample
